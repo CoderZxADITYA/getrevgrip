@@ -1,0 +1,1 @@
+export const config = { runtime: "edge" }; export default async function handler(req) { const url = new URL(req.url); const targetUrl = "https://getrevgrip.framer.ai" + url.pathname + url.search; const response = await fetch(targetUrl, { headers: { "host": "getrevgrip.framer.ai" } }); return new Response(response.body, { status: response.status, headers: response.headers }); }
